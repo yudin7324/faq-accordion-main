@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const sections = document.querySelectorAll(".accordion__section");
 
-  sections.forEach((section) => {
+  sections.forEach((section, index) => {
     const title = section.querySelector(".accordion__title");
     const content = section.querySelector(".accordion__content");
+
+    if(index === 0) {
+      section.classList.add("active");
+      content.style.maxHeight = content.scrollHeight + "px";
+    }
 
     title.addEventListener("click", () => toggleAccordion(section, content));
 
